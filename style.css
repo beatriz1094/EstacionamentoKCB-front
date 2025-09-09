@@ -1,0 +1,152 @@
+/* Reset básico */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(135deg, #f0f4f8, #e6ecf3);
+  color: #0e2b50;
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+/* HEADER */
+header {
+  background: linear-gradient(135deg, #1e293b, #334155);
+  color: #98aadb;
+  padding: 1.2em 2em;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 3px solid #13243f;
+}
+
+#menu-btn {
+  background: none;
+  border: none;
+  color: #b6d3e6;
+  font-size: 1.8em;
+  cursor: pointer;
+  z-index: 20;
+  transition: transform 0.2s, color 0.2s;
+}
+#menu-btn:hover {
+  color: #3b82f6;
+  transform: scale(1.1);
+}
+
+#menu-content {
+  position: absolute;
+  right: 2em;
+  top: 4.2em;
+  background: #141549;
+  color: #1e293b;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  padding: 1.3em 1.5em;
+  z-index: 15;
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8em;
+  transition: opacity 0.2s ease;
+}
+#menu-content a {
+  text-decoration: none;
+  color: #334155;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+#menu-content a:hover {
+  color: #3b82f6;
+}
+
+/* CARD */
+.estadia-card {
+  background: #d5dff1;
+  margin: 2em auto;
+  padding: 1.8em 2.2em;
+  border-radius: 14px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+  max-width: 550px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.estadia-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+
+/* MODAL */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 2em 2.5em;
+  border-radius: 14px;
+  min-width: 340px;
+  max-width: 90vw;
+  position: relative;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+  animation: scaleUp 0.25s ease;
+}
+
+.modal-content button.fechar {
+  position: absolute;
+  top: 0.8em;
+  right: 0.8em;
+  background: none;
+  border: none;
+  font-size: 1.4em;
+  color: #0d2950;
+  cursor: pointer;
+  transition: color 0.2s, transform 0.2s;
+}
+.modal-content button.fechar:hover {
+  color: #ef4444;
+  transform: rotate(90deg);
+}
+
+/* Animações */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes scaleUp {
+  from { transform: scale(0.9); opacity: 0.5; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* Responsividade */
+@media (max-width: 700px) {
+  header {
+    padding: 1em;
+    font-size: 0.9em;
+  }
+  #menu-content {
+    right: 1em;
+    top: 3.8em;
+    min-width: 160px;
+    padding: 1em;
+  }
+  .estadia-card {
+    padding: 1.2em;
+    max-width: 92vw;
+  }
+  .modal-content {
+    padding: 1.5em 1em;
+    min-width: 0;
+  }
+}
